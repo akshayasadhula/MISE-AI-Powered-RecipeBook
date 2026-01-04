@@ -1,0 +1,31 @@
+
+#favoritesList li{
+    border-width: 3px ;
+    border-style: solid;
+    border-color: rgba(206, 0, 0, 0);
+    margin: 15px;
+    list-style-type: none;
+     background-color: antiquewhite;
+    padding: 50px;
+    text-align: center; 
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    border-radius: 50px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: antiquewhite;
+    color: antiquewhite;
+    font-family: cursive;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+.heading_favoriterecipe_page{
+    
+    color: rgb(246, 239, 230);
+    font-family:cursive;
+    font-weight:bolder;
+    font-size: 50px;
+    text-decoration:underline;
+    text-align: center;
+    
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ✅ Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="firebaseConfig.js"></script>
+
+    
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Recipes</title>
+    <link rel="stylesheet" href="viewrecipes.css">
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  
+</head>
+<body style="background-image: url();background-size: cover;background-repeat: no-repeat;background-attachment: fixed; background-color: black;">
+    <nav class="navbar navbar-expand-lg navbar-dark  ">
+        <a class="navbar-brand" href="#">
+            <img src="##" class="navbar-image" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active nav_txt mr-1" href="Home.html">
+                    Home <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-link active nav_txt mr-1" href="viewrecipes.html">Recipes</a>
+                <a class="nav-link active nav_txt mr-1" href="favouriterecipe.html">Favourites</a>
+                <a class="nav-link active nav_txt " href="#">Contact us</a>
+                <!-- <a class="nav-link" href="#">Follow us</a> -->
+
+            </div>
+        </div>
+    </nav>
+
+
+<div class="d-flex flex-row justify-content-center">
+    <section id="recipeListSection">
+      <h2 style="color: antiquewhite;">Recipes</h2>
+      <div id="searchFilters">
+        <input type="text" id="searchBox" placeholder="Search">
+        <div id="filterChips">
+          <button class="chip active" data-filter="All">All</button>
+          <button class="chip" data-filter="Appetizer">Appetizer</button>
+          <button class="chip" data-filter="Main Course">Main Course</button>
+          <button class="chip" data-filter="Dessert">Dessert</button>
+        </div>
+        
+      </div>
+      <ul id="recipeList"></ul>
+    </section>
+  </div>
+  
+
+
+ <!-- POPUP  -->
+    
+ <div id="editModal" class="modal">
+    <div class="modal-content">
+      <h2>Edit Recipe</h2>
+      <label>Recipe Name: <input id="editRecipeName" type="text"></label><br>
+      <label>Category: <input id="editCategory" type="text"></label><br>
+      <label>Ingredients: <textarea id="editIngredients"></textarea></label><br>
+      <label>Instructions: <textarea id="editInstructions"></textarea></label><br>
+      <button id="saveChangesBtn">Save Changes</button>
+      <button id="cancelBtn">Cancel</button>
+    </div>
+  </div>
+
+  <button id="addRecipeBtn" onclick="location.href='addRecipe.html'">➕ Add Recipe</button>
+
+
+    <script src="viewrecipes.js"></script>
+</body>
+</html>

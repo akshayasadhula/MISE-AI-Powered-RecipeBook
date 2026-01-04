@@ -1,0 +1,147 @@
+@media (max-width: 768px) {
+    .addRecipe_page_box {
+        width: 90vw;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    form label, textarea, input, select, button {
+        font-size: 16px;
+    }
+
+    .button-55 {
+        width: 100%;
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading_addRecipe_page {
+        font-size: 36px;
+    }
+
+    .addRecipe_page_box {
+        padding: 15px;
+    }
+}
+
+
+
+/* 
+@media (max-width: 768px) {
+    .addRecipe_page_box {
+        width: 90vw;
+        padding: 20px;
+    }
+} */
+
+body {
+    font-family:cursive;
+    padding: 60px;
+    margin: 20px;
+}
+
+
+.heading_addRecipe_page {
+    color:rgb(255, 255, 255);
+    font-family:cursive;
+    font-weight:bolder;
+    font-size: 50px;
+    text-decoration:underline;
+    
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+}
+
+textarea, input, select {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+}
+
+button:hover {
+    background-color:antiquewhite;
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #7c95b0;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.addRecipe_page_box{
+    
+    height: 90vh;
+    width: 50vw;
+    background-color: antiquewhite;
+    padding: 50px;
+    /* margin-right:120px ; */
+    text-align: center;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    border-radius: 50px;
+    margin-top: 0px;
+    border-width: 3px ;
+    border-style: solid;
+    border-color: antiquewhite;
+    color:antiquewhite;
+    font-family: cursive;
+    font-size: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-left: 160px;
+    margin-bottom: 20px;
+}
+
+/* 
+css for message foe new js */
+
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+}
+.success {
+    background-color: #4CAF50;
+    color: white;
+}
+.error {
+    background-color: #ff4d4d;
+    color: white;
+}

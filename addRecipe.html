@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ✅ Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="firebaseConfig.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="addRecipe.css">
+    <link rel="stylesheet" href="Home.css">
+
+        
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    
+
+
+
+</head>
+<body style="background-image:url('https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1745391674~exp=1745395274~hmac=91ef2647e8402b1f530498075fbc4b2cf31112c65546e1984a0e80ea26fe183f&w=2000'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed;" ></body>
+
+
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark  ">
+                    <a class="navbar-brand" href="#">
+                        <img src="##" class="navbar-image" alt="" />
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ml-auto">
+                            <a class="nav-link active nav_txt mr-1" href="Home.html">
+                                Home <span class="sr-only">(current)</span>
+                            </a>
+                            <a class="nav-link active nav_txt mr-1" href="viewrecipes.html">Recipes</a>
+                            <a class="nav-link active nav_txt mr-1" href="favouriterecipe.html">Favourites</a>
+                            <a class="nav-link active nav_txt " href="#">Contact us</a>
+                            <!-- <a class="nav-link" href="#">Follow us</a> -->
+            
+                        </div>
+                    </div>
+                </nav> 
+        </div>
+    
+
+
+<div class="d-flex flex-row justify-content-left">
+    
+    <div class="addRecipe_page_box  ">
+    <h1 class="heading_addRecipe_page">Add a New Recipe</h1>
+    <form id="recipeForm">
+        <label for="recipeName">Recipe Name:</label>
+        <input type="text" id="recipeName" required>
+
+        <label for="category">Category:</label>
+        <select id="category" required>
+            <option value="Main Course">Main Course</option>
+            <option value="Dessert">Dessert</option>
+            <option value="Appetizer">Appetizer</option>
+        </select>
+
+        <label for="ingredients">Ingredients (comma-separated):</label>
+        <textarea id="ingredients" required></textarea>
+
+        <label for="instructions">Instructions:</label>
+        <textarea id="instructions" required></textarea>
+
+      
+
+        <button class="button-55 m-2" type="submit">Add Recipe</button>
+    </form>
+<!-- 
+    <a href="viewrecipes.html"> </a> -->
+    <button class="button-55" onclick="location.href='viewrecipes.html';">View Recipes</button>
+    <button class="button-55" onclick="location.href='Home.html';">Back</button>
+</div>
+</div>
+
+    <script src="addRecipe.js"></script>
+</body>
+</html>
+
+
+
+<!-- https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1745391674~exp=1745395274~hmac=91ef2647e8402b1f530498075fbc4b2cf31112c65546e1984a0e80ea26fe183f&w=2000 -->

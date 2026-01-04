@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background: #4caf9e;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+header button {
+    background: #fff;
+    color: #4CAF50;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+form label {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+form input, form select, form textarea, form button {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+form button {
+    margin-top: 1rem;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#recipeList {
+    list-style: none;
+    padding: 0;
+    width: 90vw;
+    border-width: 10px;
+    border-style: solid;
+}
+
+#recipeList li {
+    background: #cfa3a3;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border: 1px solid #000000;
+    margin: 10px;
+   
+   
+}
+
+
+
+/* //MY CSS */
+
+.main_page_box{
+    height: 70vh;
+    width: 40vw;
+    background-color: antiquewhite;
+    padding: 50px;
+    margin-right:120px ;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    background-color: transparent;
+    border-radius: 50px;
+    margin-top: 60px;
+    border-width: 3px ;
+    border-style: solid;
+    border-color: antiquewhite;
+}
+
+.nav_txt{
+    font-size: 20px;
+    font-family:cursive;
+}
+.mpb_heading{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    font-family:cursive;
+    font-size: 80px;
+    font-weight: bold;
+    color:antiquewhite;
+    text-align: center;
+    margin: 20px;
+    text-shadow:6px 2px #b13333;
+   
+    padding: 0px;
+    display: grid;
+    align-items: center;
+    
+}
+
+  
+  .button-55 {
+    align-self: center;
+    background-color: #000000;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 4px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family:cursive;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    border-color: antiquewhite;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 188px;
+  }
+  
+  .button-55:hover {
+    box-shadow: rgba(255, 255, 255, 0.3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+  }
+  
+  .button-55:focus {
+    box-shadow: rgba(255, 255, 255, 0.3) 2px 8px 4px -6px;
+  }
