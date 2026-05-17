@@ -1,91 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ✅ Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="firebaseConfig.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Recipe</title>
+    <title>Add Recipe — MISE</title>
     <link rel="stylesheet" href="addRecipe.css">
     <link rel="stylesheet" href="Home.css">
 
-        
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"/>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
+    <style>
+        #aiSuggestBtn {
+            background: #000; color: antiquewhite;
+            border: 2px solid antiquewhite; border-radius: 20px;
+            padding: 8px 18px; font-family: cursive; font-size: 14px;
+            cursor: pointer; margin: 8px 0 10px; transition: all 0.25s;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        #aiSuggestBtn:hover { background: antiquewhite; color: #000; }
+        #aiSuggestBtn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+        #aiStatus {
+            font-family: cursive; font-size: 13px;
+            color: #ffe4c4; margin-bottom: 8px;
+            min-height: 20px; font-style: italic;
+        }
 
+        #cookFromIngredients {
+            margin-top: 28px; padding: 20px;
+            border: 2px dashed rgba(255,235,205,0.4);
+            border-radius: 20px; color: antiquewhite; font-family: cursive;
+        }
+        #cookFromIngredients h4 { font-size: 18px; margin-bottom: 10px; color: #ffe4c4; }
+
+        #myIngredients {
+            width: 100%; padding: 10px; border-radius: 12px;
+            border: 1px solid rgba(255,235,205,0.5);
+            background: rgba(255,255,255,0.08);
+            color: antiquewhite; font-family: cursive;
+            font-size: 14px; resize: vertical; margin-bottom: 10px;
+        }
+        #myIngredients::placeholder { color: rgba(255,235,205,0.4); }
+
+        #suggestFromIngrBtn {
+            background: #000; color: antiquewhite;
+            border: 2px solid antiquewhite; border-radius: 16px;
+            padding: 8px 18px; font-family: cursive; cursor: pointer; transition: all 0.2s;
+        }
+        #suggestFromIngrBtn:hover { background: antiquewhite; color: #000; }
+        #suggestFromIngrBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        #ingredientSuggestionResult {
+            margin-top: 14px; padding: 14px;
+            background: rgba(255,235,205,0.08);
+            border: 1px solid rgba(255,235,205,0.2);
+            border-radius: 16px; font-size: 14px; display: none;
+        }
+        #useThisRecipeBtn {
+            margin-top: 10px; background: #4CAF50; color: white;
+            border: none; border-radius: 12px; padding: 8px 16px;
+            font-family: cursive; cursor: pointer;
+        }
+        #useThisRecipeBtn:hover { background: #388E3C; }
+    </style>
 </head>
-<body style="background-image:url('https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1745391674~exp=1745395274~hmac=91ef2647e8402b1f530498075fbc4b2cf31112c65546e1984a0e80ea26fe183f&w=2000'); background-size: cover; background-repeat: no-repeat;background-attachment: fixed;" ></body>
+<body style="background-image:url('https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1745391674~exp=1745395274~hmac=91ef2647e8402b1f530498075fbc4b2cf31112c65546e1984a0e80ea26fe183f&w=2000'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
 
-
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-dark  ">
-                    <a class="navbar-brand" href="#">
-                        <img src="##" class="navbar-image" alt="" />
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav ml-auto">
-                            <a class="nav-link active nav_txt mr-1" href="Home.html">
-                                Home <span class="sr-only">(current)</span>
-                            </a>
-                            <a class="nav-link active nav_txt mr-1" href="viewrecipes.html">Recipes</a>
-                            <a class="nav-link active nav_txt mr-1" href="favouriterecipe.html">Favourites</a>
-                            <a class="nav-link active nav_txt " href="#">Contact us</a>
-                            <!-- <a class="nav-link" href="#">Follow us</a> -->
-            
-                        </div>
-                    </div>
-                </nav> 
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active nav_txt mr-1" href="Home.html">Home</a>
+                <a class="nav-link active nav_txt mr-1" href="viewrecipes.html">Recipes</a>
+                <a class="nav-link active nav_txt mr-1" href="favouriterecipe.html">Favourites</a>
+                <a class="nav-link active nav_txt" href="#">Contact us</a>
+            </div>
         </div>
-    
+    </nav>
 
+    <div class="d-flex flex-row justify-content-left">
+        <div class="addRecipe_page_box">
+            <h1 class="heading_addRecipe_page">Add a New Recipe</h1>
+            <form id="recipeForm">
+                <label for="recipeName">Recipe Name:</label>
+                <input type="text" id="recipeName" required placeholder="e.g. Butter Chicken">
 
-<div class="d-flex flex-row justify-content-left">
-    
-    <div class="addRecipe_page_box  ">
-    <h1 class="heading_addRecipe_page">Add a New Recipe</h1>
-    <form id="recipeForm">
-        <label for="recipeName">Recipe Name:</label>
-        <input type="text" id="recipeName" required>
+                <label for="category">Category:</label>
+                <select id="category" required>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Appetizer">Appetizer</option>
+                </select>
 
-        <label for="category">Category:</label>
-        <select id="category" required>
-            <option value="Main Course">Main Course</option>
-            <option value="Dessert">Dessert</option>
-            <option value="Appetizer">Appetizer</option>
-        </select>
+                <!-- AI Fill Button -->
+                <button type="button" id="aiSuggestBtn">✨ AI Fill Ingredients & Instructions</button>
+                <div id="aiStatus"></div>
 
-        <label for="ingredients">Ingredients (comma-separated):</label>
-        <textarea id="ingredients" required></textarea>
+                <label for="ingredients">Ingredients (comma-separated):</label>
+                <textarea id="ingredients" required></textarea>
 
-        <label for="instructions">Instructions:</label>
-        <textarea id="instructions" required></textarea>
+                <label for="instructions">Instructions:</label>
+                <textarea id="instructions" required></textarea>
 
-      
+                <button class="button-55 m-2" type="submit">Add Recipe</button>
+            </form>
 
-        <button class="button-55 m-2" type="submit">Add Recipe</button>
-    </form>
-<!-- 
-    <a href="viewrecipes.html"> </a> -->
-    <button class="button-55" onclick="location.href='viewrecipes.html';">View Recipes</button>
-    <button class="button-55" onclick="location.href='Home.html';">Back</button>
-</div>
-</div>
+            <!-- What can I cook? -->
+            <div id="cookFromIngredients">
+                <h4>🧑‍🍳 What can I cook with what I have?</h4>
+                <textarea id="myIngredients" rows="3" placeholder="e.g. chicken, garlic, tomatoes, onion..."></textarea>
+                <button id="suggestFromIngrBtn">✨ Suggest a Recipe</button>
+                <div id="ingredientSuggestionResult"></div>
+            </div>
+
+            <button class="button-55 mt-3" onclick="location.href='viewrecipes.html';">View Recipes</button>
+            <button class="button-55 mt-2" onclick="location.href='Home.html';">Back</button>
+        </div>
+    </div>
 
     <script src="addRecipe.js"></script>
+    <script src="ai.js"></script>
+    <script src="aiChat.js"></script>
+    <script>
+        // AI Fill button
+        document.getElementById('aiSuggestBtn').addEventListener('click', async () => {
+            const name = document.getElementById('recipeName').value.trim();
+            const category = document.getElementById('category').value;
+            const btn = document.getElementById('aiSuggestBtn');
+            const status = document.getElementById('aiStatus');
+
+            if (!name) { status.textContent = '⚠️ Please enter a recipe name first!'; return; }
+
+            btn.disabled = true;
+            btn.textContent = '⏳ Asking AI chef...';
+            status.textContent = '';
+
+            try {
+                const result = await SIZZLE_AI.suggestRecipe(name, category);
+                document.getElementById('ingredients').value = result.ingredients;
+                document.getElementById('instructions').value = result.instructions;
+                status.textContent = '✅ AI filled the details! Feel free to edit.';
+            } catch (err) {
+                status.textContent = '❌ ' + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '✨ AI Fill Ingredients & Instructions';
+            }
+        });
+
+        // What can I cook?
+        let aiSuggestedRecipe = null;
+
+        document.getElementById('suggestFromIngrBtn').addEventListener('click', async () => {
+            const ingredients = document.getElementById('myIngredients').value.trim();
+            const resultDiv = document.getElementById('ingredientSuggestionResult');
+            const btn = document.getElementById('suggestFromIngrBtn');
+
+            if (!ingredients) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '<span style="color:#ff8a8a;">⚠️ Enter some ingredients first!</span>';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = '⏳ Thinking...';
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = '<em>Chef AI is brainstorming... 🍲</em>';
+
+            try {
+                const recipe = await SIZZLE_AI.suggestFromIngredients(ingredients);
+                aiSuggestedRecipe = recipe;
+                resultDiv.innerHTML = `
+                    <strong style="font-size:16px;color:#ffe4c4;">🍽️ ${recipe.name}</strong>
+                    <span style="font-size:12px;opacity:0.7;display:block;margin-bottom:6px;">${recipe.category}</span>
+                    <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
+                    <p><strong>Instructions:</strong> ${recipe.instructions}</p>
+                    <button id="useThisRecipeBtn">📋 Use This Recipe</button>
+                `;
+                document.getElementById('useThisRecipeBtn').addEventListener('click', () => {
+                    document.getElementById('recipeName').value = aiSuggestedRecipe.name;
+                    document.getElementById('category').value = aiSuggestedRecipe.category;
+                    document.getElementById('ingredients').value = aiSuggestedRecipe.ingredients;
+                    document.getElementById('instructions').value = aiSuggestedRecipe.instructions;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    document.getElementById('aiStatus').textContent = '✅ Recipe loaded from AI suggestion!';
+                });
+            } catch (err) {
+                resultDiv.innerHTML = '<span style="color:#ff8a8a;">❌ Couldn\'t get a suggestion. Try again!</span>';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = '✨ Suggest a Recipe';
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-<!-- https://img.freepik.com/free-photo/crop-plate-with-salad_23-2147753678.jpg?t=st=1745391674~exp=1745395274~hmac=91ef2647e8402b1f530498075fbc4b2cf31112c65546e1984a0e80ea26fe183f&w=2000 -->
